@@ -445,7 +445,6 @@ Board page	Material used in this chapter
 51	Rules, training, neural networks, and LLM comparison
 ---
 
-## Next chapter
-Chapter 2 - Machine Learning Fundamentals will expand the training branch of the board's comparison. It will cover problem framing, supervised and unsupervised learning, features, labels, train/validation/test splits, evaluation metrics, overfitting, drift, and the relationship between predictive models and generative systems.
----
+## 21. Next chapter
 
+**Chapter 2 - Machine Learning Fundamentals** will expand the training branch of the board's comparison. It will cover problem framing, supervised and unsupervised learning, features, labels, train/validation/test splits, evaluation metrics, overfitting, drift, and the relationship between predictive models and generative systems.
