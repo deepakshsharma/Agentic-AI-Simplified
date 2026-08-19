@@ -188,60 +188,74 @@ Each layer adds risks:
 
 ---
 
-## 16. Mini-Lab: Supplier Recommendation
-Mini-lab: design the right architecture
-Scenario
+## 16. Mini-lab: design the right architecture
+
+### Scenario
+
 A procurement team wants a system that recommends a supplier for each purchase request.
 
 Available data:
 
-supplier prices;
-promised delivery dates;
-quality history;
-approved-supplier policy;
-live inventory data;
-contract constraints.
-Step 1: separate deterministic constraints
+- supplier prices;
+- promised delivery dates;
+- quality history;
+- approved-supplier policy;
+- live inventory data;
+- contract constraints.
+
+### Step 1: separate deterministic constraints
+
 Examples:
 
-supplier must be approved;
-quality score must exceed a threshold;
-contract region must match;
-restricted materials require compliance review.
+- supplier must be approved;
+- quality score must exceed a threshold;
+- contract region must match;
+- restricted materials require compliance review.
+
 These should be enforced with rules.
 
-Step 2: identify prediction or ranking needs
+### Step 2: identify prediction or ranking needs
+
 A model might estimate:
 
-probability of on-time delivery;
-expected quality risk;
-likelihood of price variance.
-Step 3: identify language needs
+- probability of on-time delivery;
+- expected quality risk;
+- likelihood of price variance.
+
+### Step 3: identify language needs
+
 An LLM can:
 
-interpret a free-text purchase request;
-summarize supplier tradeoffs;
-explain the recommendation.
-Step 4: identify agentic needs
+- interpret a free-text purchase request;
+- summarize supplier tradeoffs;
+- explain the recommendation.
+
+### Step 4: identify agentic needs
+
 An agent is justified if the system must:
 
-query multiple systems;
-compare candidates;
-handle missing data;
-request clarification;
-run policy checks;
-prepare an approval package.
-Step 5: define control points
+- query multiple systems;
+- compare candidates;
+- handle missing data;
+- request clarification;
+- run policy checks;
+- prepare an approval package.
+
+### Step 5: define control points
+
 Before any order is placed:
 
-verify policy compliance;
-show sources used;
-display confidence or uncertainty;
-require human approval above a cost threshold;
-log the final decision and evidence.
-Exercise
+- verify policy compliance;
+- show sources used;
+- display confidence or uncertainty;
+- require human approval above a cost threshold;
+- log the final decision and evidence.
+
+### Exercise
+
 Create your own architecture using this template:
 
+```text
 Business objective:
 Users:
 Required data:
@@ -253,41 +267,125 @@ State or memory:
 Human approvals:
 Stop conditions:
 Evaluation metrics:
+```
+
 ---
 
-## Knowledge Check
-Question 1
+## 17. Knowledge check
+
+### Question 1
+
 A system applies a fixed tax rule to a transaction. Which approach is most appropriate?
 
-A. Agentic workflow
-B. LLM generation
-C. Deterministic software
+A. Agentic workflow  
+B. LLM generation  
+C. Deterministic software  
 D. Multi-agent debate
 
-Answer: C. The logic is known and should be exact.
+**Answer:** C. The logic is known and should be exact.
 
-Question 2
+### Question 2
+
 A system predicts whether a delivery will be late using years of labeled shipment history. Which approach is central?
 
-A. Machine learning
-B. Prompt engineering
-C. Rule-only software
+A. Machine learning  
+B. Prompt engineering  
+C. Rule-only software  
 D. Conversational memory
 
-Answer: A.
+**Answer:** A.
 
-Question 3
+### Question 3
+
 A system summarizes an uploaded policy document. What is the minimum likely design?
 
-A. Full multi-agent hierarchy
-B. LLM application with the document in context
-C. Reinforcement-learning environment
+A. Full multi-agent hierarchy  
+B. LLM application with the document in context  
+C. Reinforcement-learning environment  
 D. Rules engine only
 
-Answer: B.
+**Answer:** B.
 
-Question 4
+### Question 4
+
 A system must inspect three data sources, request missing information, compare alternatives, and create an approval draft. What additional design concept is likely needed?
+
+**Answer:** A controlled agentic workflow with tools and persistent state.
+
+### Question 5
+
+Why is an LLM not a complete AI product?
+
+**Answer:** Because production behavior also depends on data access, context assembly, permissions, tools, state, validation, UX, monitoring, and operational controls.
+
+---
+
+## 18. Interview questions
+
+### Foundation level
+
+1. What is the difference between AI, machine learning, and deep learning?
+2. How does rule-based software differ from a trained model?
+3. What is the difference between training and inference?
+4. What does an LLM generate?
+5. What is an embedding?
+
+### Practitioner level
+
+1. When would you prefer deterministic code over an LLM?
+2. How would you combine rules, ML, and LLMs in one system?
+3. What turns an LLM application into an agentic system?
+4. Why must tool calls be validated outside the model?
+5. How would you measure whether an agent is useful?
+
+### Architecture level
+
+1. Design a support-triage system with current policy grounding and human escalation.
+2. Where should authorization be enforced in an agent architecture?
+3. How would you prevent duplicate side effects during retries?
+4. What evidence should be logged for an agent decision?
+5. How would you decide whether a workflow needs one agent, multiple agents, or no agent?
+
+---
+
+## 19. Chapter summary
+
+- Conventional programming expresses behavior through explicit rules.
+- Machine learning learns predictive patterns from data.
+- Deep learning learns internal representations from unstructured inputs.
+- Large language models generate language or structured outputs from prompts and context.
+- Agentic systems add controlled multi-step action, tools, state, and termination logic.
+- A model is only one component of a production AI system.
+- Production architecture must include identity, permissions, orchestration, context, retrieval, tool validation, evaluation, guardrails, UX, and observability.
+- New capabilities introduce new failure modes.
+- The safest architecture is usually the simplest design that satisfies the business objective.
+
+---
+
+## 20. Source map
+
+| Board page | Material used in this chapter |
+|---:|---|
+| 1 | Supplier recommendation example, evidence, confidence, and human-review options |
+| 2 | Agent evaluation dimensions |
+| 3 | Support-triage role, plan, and output |
+| 4 | Project-coordination workflow and source transparency |
+| 5 | Course-level learning objectives |
+| 6-7, 49 | RAG as external grounding |
+| 10, 47 | Responsible-AI pipeline |
+| 15-18 | Orchestration concepts |
+| 23-26 | Guardrails, controls, and edge cases |
+| 28 | Application-layer responsibilities |
+| 34 | Business problem to agentic RAG and production architecture |
+| 42 | Prompt components that influence model behavior |
+| 51 | Rules, training, neural networks, and LLM comparison |
+
+---
+
+## 21. Next chapter
+
+**Chapter 2 - Machine Learning Fundamentals** will expand the training branch of the board's comparison. It will cover problem framing, supervised and unsupervised learning, features, labels, train/validation/test splits, evaluation metrics, overfitting, drift, and the relationship between predictive models and generative systems.
+concept is likely needed?
 
 Answer: A controlled agentic workflow with tools and persistent state.
 
